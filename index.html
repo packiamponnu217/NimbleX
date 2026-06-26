@@ -1063,7 +1063,7 @@
       position: relative;
       width: 100%;
       max-width: 1100px;
-      margin: 0 auto;
+      margin: 0 auto 80px;
       padding: 90px 40px 110px;
       z-index: 2;
       display: flex;
@@ -1140,6 +1140,17 @@
       height: 100%;
       z-index: 1;
       pointer-events: none;
+    }
+
+    .flow-line {
+      stroke-dasharray: 6 10;
+      animation: flow 1s linear infinite;
+    }
+
+    @keyframes flow {
+      to {
+        stroke-dashoffset: -16;
+      }
     }
 
     /* Dashboard mockup (glass style) */
@@ -2724,66 +2735,68 @@
     <div id="parallax-scene-left" style="position: absolute; inset: 0; z-index: 3; pointer-events: none;">
       <div data-depth="0.2" style="width: 100%; height: 100%;">
         <div class="hero-side left">
-      <div class="prog-card">
-        <div class="term-bar">
-          <div class="term-btn" style="background:#FF5F56;"></div>
-          <div class="term-btn" style="background:#FFBD2E;"></div>
-          <div class="term-btn" style="background:#27C93F;"></div>
-          <div class="term-title">nimblex — student — progress</div>
-        </div>
-        <div class="term-body" style="padding:14px 16px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-            <span
-              style="font-size:9px; font-weight:700; letter-spacing:0.07em; color:#484F58; font-family:'Inter',sans-serif;">LEARNING
-              PATH</span>
-            <span style="font-size:10px; font-weight:700; color:#F59E0B; font-family:'Inter',sans-serif;">Month 3 /
-              7</span>
-          </div>
-          <!-- Overall progress -->
-          <div style="margin-bottom:14px;">
-            <div style="display:flex; justify-content:space-between; font-size:10px; margin-bottom:5px;">
-              <span style="color:#8B949E; font-family:'Inter',sans-serif;">Overall Progress</span>
-              <span style="color:#6366F1; font-weight:700; font-family:'Inter',sans-serif;">42%</span>
+          <div class="prog-card">
+            <div class="term-bar">
+              <div class="term-btn" style="background:#FF5F56;"></div>
+              <div class="term-btn" style="background:#FFBD2E;"></div>
+              <div class="term-btn" style="background:#27C93F;"></div>
+              <div class="term-title">nimblex — student — progress</div>
             </div>
-            <div class="prog-bar-bg">
-              <div class="prog-bar-fill" style="width:42%; background:linear-gradient(90deg,#6366F1,#06B6D4);"></div>
+            <div class="term-body" style="padding:14px 16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <span
+                  style="font-size:9px; font-weight:700; letter-spacing:0.07em; color:#484F58; font-family:'Inter',sans-serif;">LEARNING
+                  PATH</span>
+                <span style="font-size:10px; font-weight:700; color:#F59E0B; font-family:'Inter',sans-serif;">Month 3 /
+                  7</span>
+              </div>
+              <!-- Overall progress -->
+              <div style="margin-bottom:14px;">
+                <div style="display:flex; justify-content:space-between; font-size:10px; margin-bottom:5px;">
+                  <span style="color:#8B949E; font-family:'Inter',sans-serif;">Overall Progress</span>
+                  <span style="color:#6366F1; font-weight:700; font-family:'Inter',sans-serif;">42%</span>
+                </div>
+                <div class="prog-bar-bg">
+                  <div class="prog-bar-fill" style="width:42%; background:linear-gradient(90deg,#6366F1,#06B6D4);">
+                  </div>
+                </div>
+              </div>
+              <!-- Steps -->
+              <div class="prog-step">
+                <div class="ps-icon ps-done">✓</div>
+                <span class="ps-label">Fundamentals</span>
+                <span class="ps-badge psb-done">DONE</span>
+              </div>
+              <div class="prog-step">
+                <div class="ps-icon ps-done">✓</div>
+                <span class="ps-label">Frameworks</span>
+                <span class="ps-badge psb-done">DONE</span>
+              </div>
+              <div class="prog-step">
+                <div class="ps-icon ps-active">▶</div>
+                <span class="ps-label">Product Engineering</span>
+                <span class="ps-badge psb-active">ACTIVE</span>
+              </div>
+              <div class="prog-step">
+                <div class="ps-icon ps-todo">○</div>
+                <span class="ps-label ps-done-label">Capstone Project</span>
+                <span class="ps-badge psb-todo">QUEUED</span>
+              </div>
+              <div class="prog-step">
+                <div class="ps-icon ps-todo">○</div>
+                <span class="ps-label ps-done-label">Career Readiness</span>
+                <span class="ps-badge psb-todo">QUEUED</span>
+              </div>
+              <!-- Streak -->
+              <div
+                style="margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-size:10px; color:#8B949E; font-family:'Inter',sans-serif;">🔥 Streak</span>
+                <span style="font-size:11px; font-weight:700; color:#F59E0B; font-family:'Inter',sans-serif;">42
+                  days</span>
+              </div>
             </div>
           </div>
-          <!-- Steps -->
-          <div class="prog-step">
-            <div class="ps-icon ps-done">✓</div>
-            <span class="ps-label">Fundamentals</span>
-            <span class="ps-badge psb-done">DONE</span>
-          </div>
-          <div class="prog-step">
-            <div class="ps-icon ps-done">✓</div>
-            <span class="ps-label">Frameworks</span>
-            <span class="ps-badge psb-done">DONE</span>
-          </div>
-          <div class="prog-step">
-            <div class="ps-icon ps-active">▶</div>
-            <span class="ps-label">Product Engineering</span>
-            <span class="ps-badge psb-active">ACTIVE</span>
-          </div>
-          <div class="prog-step">
-            <div class="ps-icon ps-todo">○</div>
-            <span class="ps-label ps-done-label">Capstone Project</span>
-            <span class="ps-badge psb-todo">QUEUED</span>
-          </div>
-          <div class="prog-step">
-            <div class="ps-icon ps-todo">○</div>
-            <span class="ps-label ps-done-label">Career Readiness</span>
-            <span class="ps-badge psb-todo">QUEUED</span>
-          </div>
-          <!-- Streak -->
-          <div
-            style="margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:space-between;">
-            <span style="font-size:10px; color:#8B949E; font-family:'Inter',sans-serif;">🔥 Streak</span>
-            <span style="font-size:11px; font-weight:700; color:#F59E0B; font-family:'Inter',sans-serif;">42 days</span>
-          </div>
         </div>
-      </div>
-    </div>
       </div>
     </div>
 
@@ -2934,46 +2947,46 @@
     <div id="parallax-scene-right" style="position: absolute; inset: 0; z-index: 3; pointer-events: none;">
       <div data-depth="0.3" style="width: 100%; height: 100%;">
         <div class="hero-side right">
-      <div class="term-window right-term" id="termRight">
-        <div class="term-bar">
-          <div class="term-btn" style="background:#FF5F56;"></div>
-          <div class="term-btn" style="background:#FFBD2E;"></div>
-          <div class="term-btn" style="background:#27C93F;"></div>
-          <div class="term-title">nimblex — project — sprint-04</div>
-        </div>
-        <div class="term-body">
-          <div
-            style="font-size:9px; font-weight:700; letter-spacing:0.07em; color:#484F58; font-family:'Inter',sans-serif; margin-bottom:10px;">
-            SPRINT REVIEW</div>
-          <div class="pipe-row"><span class="pipe-step">✦ Feature completed</span><span
-              class="pipe-badge pipe-pass">DONE</span></div>
-          <div class="pipe-row"><span class="pipe-step">✦ Code reviewed</span><span
-              class="pipe-badge pipe-pass">DONE</span></div>
-          <div class="pipe-row"><span class="pipe-step">✦ Tests passed</span><span
-              class="pipe-badge pipe-pass">DONE</span></div>
-          <div class="pipe-row"><span class="pipe-step">✦ Deployed to staging</span><span class="pipe-badge pipe-run"
-              id="buildBadge">LIVE</span></div>
-          <div class="pipe-row"><span class="pipe-step">✦ Mentor feedback</span><span class="pipe-badge pipe-wait"
-              id="deployBadge">PENDING</span></div>
-          <div style="margin-top:14px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.06);">
-            <div
-              style="font-size:9px; font-weight:700; letter-spacing:0.07em; color:#484F58; font-family:'Inter',sans-serif; margin-bottom:8px;">
-              YOUR PROGRESS</div>
-            <div style="display:flex; justify-content:space-between; font-size:10.5px; margin-bottom:5px;">
-              <span style="color:#8B949E; font-family:'Inter',sans-serif;">Sprint 4 of 7</span>
-              <span style="color:#10B981; font-weight:700; font-family:'Inter',sans-serif;">57%</span>
+          <div class="term-window right-term" id="termRight">
+            <div class="term-bar">
+              <div class="term-btn" style="background:#FF5F56;"></div>
+              <div class="term-btn" style="background:#FFBD2E;"></div>
+              <div class="term-btn" style="background:#27C93F;"></div>
+              <div class="term-title">nimblex — project — sprint-04</div>
             </div>
-            <div style="height:5px; background:rgba(255,255,255,0.07); border-radius:100px; overflow:hidden;">
+            <div class="term-body">
               <div
-                style="height:100%; width:57%; background:linear-gradient(90deg,#6366F1,#06B6D4); border-radius:100px;">
+                style="font-size:9px; font-weight:700; letter-spacing:0.07em; color:#484F58; font-family:'Inter',sans-serif; margin-bottom:10px;">
+                SPRINT REVIEW</div>
+              <div class="pipe-row"><span class="pipe-step">✦ Feature completed</span><span
+                  class="pipe-badge pipe-pass">DONE</span></div>
+              <div class="pipe-row"><span class="pipe-step">✦ Code reviewed</span><span
+                  class="pipe-badge pipe-pass">DONE</span></div>
+              <div class="pipe-row"><span class="pipe-step">✦ Tests passed</span><span
+                  class="pipe-badge pipe-pass">DONE</span></div>
+              <div class="pipe-row"><span class="pipe-step">✦ Deployed to staging</span><span
+                  class="pipe-badge pipe-run" id="buildBadge">LIVE</span></div>
+              <div class="pipe-row"><span class="pipe-step">✦ Mentor feedback</span><span class="pipe-badge pipe-wait"
+                  id="deployBadge">PENDING</span></div>
+              <div style="margin-top:14px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.06);">
+                <div
+                  style="font-size:9px; font-weight:700; letter-spacing:0.07em; color:#484F58; font-family:'Inter',sans-serif; margin-bottom:8px;">
+                  YOUR PROGRESS</div>
+                <div style="display:flex; justify-content:space-between; font-size:10.5px; margin-bottom:5px;">
+                  <span style="color:#8B949E; font-family:'Inter',sans-serif;">Sprint 4 of 7</span>
+                  <span style="color:#10B981; font-weight:700; font-family:'Inter',sans-serif;">57%</span>
+                </div>
+                <div style="height:5px; background:rgba(255,255,255,0.07); border-radius:100px; overflow:hidden;">
+                  <div
+                    style="height:100%; width:57%; background:linear-gradient(90deg,#6366F1,#06B6D4); border-radius:100px;">
+                  </div>
+                </div>
               </div>
+              <div style="margin-top:12px;" class="tl"><span class="tl-prompt">$</span><span class="tl-text">
+                </span><span class="cursor"></span></div>
             </div>
           </div>
-          <div style="margin-top:12px;" class="tl"><span class="tl-prompt">$</span><span class="tl-text"> </span><span
-              class="cursor"></span></div>
         </div>
-      </div>
-    </div>
       </div>
     </div>
 
@@ -2981,10 +2994,13 @@
 
   <div class="stage">
     <svg class="connections" viewBox="0 0 1100 460" preserveAspectRatio="none">
-      <line x1="105" y1="105" x2="400" y2="230" style="stroke:rgba(var(--primary-rgb),0.35);" stroke-width="1.5" />
-      <line x1="995" y1="75" x2="700" y2="230" style="stroke:rgba(var(--secondary-rgb),0.35);" stroke-width="1.5" />
-      <line x1="135" y1="385" x2="400" y2="260" stroke="rgba(16,185,129,0.35)" stroke-width="1.5" />
-      <line x1="965" y1="405" x2="700" y2="260" style="stroke:rgba(var(--primary-rgb),0.35);" stroke-width="1.5" />
+      <line class="flow-line" x1="105" y1="105" x2="400" y2="230" style="stroke:rgba(var(--primary-rgb),0.5);"
+        stroke-width="1.5" />
+      <line class="flow-line" x1="995" y1="75" x2="700" y2="230" style="stroke:rgba(var(--secondary-rgb),0.5);"
+        stroke-width="1.5" />
+      <line class="flow-line" x1="135" y1="385" x2="400" y2="260" stroke="rgba(16,185,129,0.5)" stroke-width="1.5" />
+      <line class="flow-line" x1="965" y1="405" x2="700" y2="260" style="stroke:rgba(var(--primary-rgb),0.5);"
+        stroke-width="1.5" />
       <circle cx="105" cy="105" r="3" style="fill:var(--primary);" />
       <circle cx="995" cy="75" r="3" style="fill:var(--secondary);" />
       <circle cx="135" cy="385" r="3" fill="#10B981" />
@@ -3009,6 +3025,14 @@
       <div class="ctitle">Next Up</div>
       <div class="cval">Capstone Project</div>
       <div class="pill">Queued</div>
+    </div>
+
+    <div class="stage-header" style="text-align: center; margin-bottom: 60px; position: relative; z-index: 5;">
+      <span class="kicker">Interactive Dashboard</span>
+      <h2 style="font-size: 38px; margin-bottom: 16px; margin-top: 10px;">The NimbleX <span class="grad-text">Workflow</span></h2>
+      <p class="section-sub" style="max-width: 600px; margin: 0 auto;">
+        Experience a simulated work environment. Track your sprints, manage code reviews, and sync with your reporting manager.
+      </p>
     </div>
 
     <div class="dash-panel">
@@ -4017,12 +4041,29 @@
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
   <script>
     (function () {
       var sceneLeft = document.getElementById('parallax-scene-left');
       var sceneRight = document.getElementById('parallax-scene-right');
       if (sceneLeft && typeof Parallax !== 'undefined') new Parallax(sceneLeft);
       if (sceneRight && typeof Parallax !== 'undefined') new Parallax(sceneRight);
+
+      // Initialize 3D Tilt for cards and dashboard
+      if (typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelectorAll(".card"), {
+          max: 15,
+          speed: 400,
+          glare: true,
+          "max-glare": 0.2,
+        });
+        VanillaTilt.init(document.querySelector(".dash-panel"), {
+          max: 5,
+          speed: 400,
+          glare: true,
+          "max-glare": 0.1,
+        });
+      }
     })();
   </script>
 </body>

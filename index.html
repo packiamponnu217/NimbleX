@@ -39,6 +39,8 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;      /* prevents horizontal scroll from any overflowing child */
+      max-width: 100%;
     }
 
     body {
@@ -606,6 +608,7 @@
       border: 1px solid var(--glass-border);
       backdrop-filter: blur(12px);
       cursor: pointer;
+      white-space: nowrap;
     }
 
     .feature-grid {
@@ -1455,12 +1458,27 @@
         min-height: 64px;
         padding: 12px 20px;
         gap: 12px;
+        overflow: hidden;          /* nothing can overflow the topbar */
       }
 
       .topbar-left {
         min-width: 0;
-        gap: 12px;
         flex: 1;
+        gap: 8px;                  /* tighter gap on mobile */
+        overflow: hidden;          /* clip any internal overflow */
+      }
+
+      /* Hide status chip — keeps only logo + hamburger in the topbar on mobile */
+      .status-chip {
+        display: none;
+      }
+
+      /* Smaller logo on tablet */
+      .logo-img {
+        height: 30px;
+        max-width: 120px;
+        object-fit: contain;
+        object-position: left center;
       }
 
       .role-strip,
@@ -1592,13 +1610,41 @@
         min-width: 100%;
       }
 
-      .compare-card,
-      .project-card,
-      .track-card,
-      .org-card,
-      .glass-card,
-      .manager-panel {
-        padding: 18px;
+      /* Stack CTA buttons vertically on phones */
+      .cta-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+        text-align: center;
+      }
+
+      /* Hero padding */
+      .hero {
+        padding: 56px 16px 20px;
+      }
+
+      /* Journey strip — wrap and hide arrows */
+      .journey-strip {
+        flex-wrap: wrap;
+        gap: 10px 6px;
+        justify-content: center;
+        max-width: 100%;
+        margin-bottom: 32px;
+      }
+
+      .j-arr {
+        display: none;
+      }
+
+      .feature-grid {
+        margin-bottom: 32px;
       }
 
       .modal-card {
@@ -3076,16 +3122,6 @@
 
       h2 {
         font-size: 22px;
-      }
-
-      .cta-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        text-align: center;
       }
 
       .social-links {

@@ -39,7 +39,7 @@
 
     html {
       scroll-behavior: smooth;
-      overflow-x: hidden;      /* prevents horizontal scroll from any overflowing child */
+      overflow-x: clip;      /* prevents horizontal scroll without breaking position: sticky */
       max-width: 100%;
     }
 
@@ -49,7 +49,7 @@
       font-family: 'Inter', sans-serif;
       min-height: 100vh;
       position: relative;
-      overflow-x: hidden;
+      overflow-x: clip;
       transition: background 0.3s ease, color 0.3s ease;
     }
 

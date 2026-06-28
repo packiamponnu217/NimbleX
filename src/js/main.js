@@ -185,17 +185,18 @@
       });
 
       // ===== Keep role tabs in sync with scroll position =====
-      var navSections = ['why', 'how-it-works', 'projects', 'mentors', 'manager', 'tracking', 'faq','contact'];
+      var navSections = ['why', 'how-it-works', 'mentors', 'manager', 'roadmap', 'faq', 'contact'];
       var navTabs = document.querySelectorAll('.role-tab');
       var mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
       // Sections with no nav tab fall through to the next one that does
       var sectionTabMap = {
         'why': 'why',
-        'how-it-works': 'why',
-        'projects': 'projects',
+        'how-it-works': 'how-it-works',
+        'projects': 'how-it-works',
         'mentors': 'mentors',
         'manager': 'manager',
-        'tracking': 'tracking',
+        'tracking': 'manager',
+        'roadmap': 'roadmap',
         'faq': 'faq',
         'contact': 'contact'
       };

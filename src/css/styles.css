@@ -3445,7 +3445,7 @@
       display: flex;
       align-items: center;
       gap: 0;
-      animation: ticker-scroll 30s linear infinite;
+      animation: ticker-scroll 18s linear infinite;
       will-change: transform;
     }
  
@@ -3520,11 +3520,21 @@
       }
  
       .ticker-track {
-        animation-duration: 11s;
+        animation-duration: 7s;
       }
  
       .ticker-item {
         padding: 0 16px;
         font-size: 12px;
+      }
+
+      .ticker-item img,
+      .ticker-item svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .ticker-name {
+        display: none;
       }
     }

@@ -521,6 +521,8 @@ document.getElementById("downloadBrochure").addEventListener("click", function (
 
     const link = document.createElement("a");
     link.href = "docs/brochure.pdf";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
     link.setAttribute("download", "NimbleX_Brochure.pdf");
     link.style.display = "none";
 

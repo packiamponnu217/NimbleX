@@ -2549,7 +2549,7 @@
 
     .manager-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 35fr 65fr;
       gap: 60px;
       align-items: center;
     }

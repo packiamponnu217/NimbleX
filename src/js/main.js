@@ -53,7 +53,12 @@
 
       // Topbar CTA, final CTA button, and hero primary CTA open the same modal
       document.querySelectorAll('.nav-cta, #finalCtaBtn, #heroCtaPrimary').forEach(function (btn) {
-        btn.addEventListener('click', function () { openModal(); });
+        btn.addEventListener('click', function () {
+          openModal();
+          if (window.NXAnalytics) {
+            window.NXAnalytics.trackEvent('cta_click', { cta_id: btn.id || 'nav_cta' });
+          }
+        });
       });
 
       document.getElementById('modalClose').addEventListener('click', closeModal);
@@ -100,6 +105,9 @@
           setTimeout(function () {
             scrollToTarget(document.getElementById(targetId));
           }, 260);
+          if (window.NXAnalytics) {
+            window.NXAnalytics.trackEvent('nav_click', { nav_target: targetId, nav_type: 'mobile' });
+          }
         });
       });
 
@@ -107,6 +115,9 @@
         mobileNavCta.addEventListener('click', function () {
           closeMobileNav();
           setTimeout(openModal, 260);
+          if (window.NXAnalytics) {
+            window.NXAnalytics.trackEvent('cta_click', { cta_id: 'mobile_nav_cta' });
+          }
         });
       }
 
@@ -154,6 +165,13 @@
           modalSuccess.classList.add('open');
           modalSubmitBtn.disabled = false;
           modalSubmitBtn.textContent = 'Submit & Start Journey →';
+          if (window.NXAnalytics) {
+            window.NXAnalytics.trackEvent('sign_up', {
+              method: 'signup_form',
+              experience_level: level,
+              city: city
+            });
+          }
           signupForm.reset();
           // Reset custom dropdowns
           document.querySelectorAll('.custom-select-trigger').forEach(function(t) {
@@ -180,6 +198,9 @@
           var targetId = tab.getAttribute('data-target');
           if (targetId) {
             scrollToTarget(document.getElementById(targetId));
+          }
+          if (window.NXAnalytics) {
+            window.NXAnalytics.trackEvent('nav_click', { nav_target: targetId, nav_type: 'desktop' });
           }
         });
       });
@@ -237,7 +258,14 @@
           // Close all
           document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
           // Toggle clicked
-          if (!isOpen) item.classList.add('open');
+          if (!isOpen) {
+            item.classList.add('open');
+            if (window.NXAnalytics) {
+              window.NXAnalytics.trackEvent('faq_open', {
+                faq_question: q.textContent.trim()
+              });
+            }
+          }
         });
       });
 
@@ -406,6 +434,9 @@
             modal.classList.add('open');
             document.body.style.overflow = 'hidden';
             sessionStorage.setItem('nx_modal_shown', '1');
+            if (window.NXAnalytics) {
+              window.NXAnalytics.trackEvent('modal_auto_open', { trigger: 'timed_session' });
+            }
           }
         }, 10000);
       })();
@@ -530,4 +561,11 @@ document.getElementById("downloadBrochure").addEventListener("click", function (
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+
+    if (window.NXAnalytics) {
+        window.NXAnalytics.trackEvent("file_download", {
+            file_name: "NimbleX_Brochure.pdf",
+            link_url: "docs/brochure.pdf"
+        });
+    }
 });
